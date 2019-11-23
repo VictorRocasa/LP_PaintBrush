@@ -22,6 +22,9 @@ import paintbrush.D0;
 public class Tela extends javax.swing.JFrame {
 
     int tipo = 0;
+    boolean primeiro = false;
+    int x0, y0;
+    int valorRealSlide;
     
     public Tela() {
         initComponents();
@@ -38,16 +41,17 @@ public class Tela extends javax.swing.JFrame {
 
         jColorChooser1 = new javax.swing.JColorChooser();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jSlider1 = new javax.swing.JSlider();
         painel = new javax.swing.JPanel();
-        Area = new java.awt.Checkbox();
+        Distancia = new java.awt.Checkbox();
         Preencher = new java.awt.Checkbox();
-        Area2 = new java.awt.Checkbox();
+        Diametro = new java.awt.Checkbox();
         selecionaCor = new javax.swing.JColorChooser();
         corExterna = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         corInterna = new javax.swing.JPanel();
-        Area3 = new java.awt.Checkbox();
+        Volume = new java.awt.Checkbox();
         Pontos = new javax.swing.JButton();
         Retas = new javax.swing.JButton();
         Retangulo = new javax.swing.JButton();
@@ -55,6 +59,9 @@ public class Tela extends javax.swing.JFrame {
         Cilindro = new javax.swing.JButton();
         Spary = new javax.swing.JButton();
         Borracha = new javax.swing.JButton();
+        Area1 = new java.awt.Checkbox();
+        valorSlide = new javax.swing.JSlider();
+        tamanho = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -73,29 +80,32 @@ public class Tela extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 painelMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                painelMouseReleased(evt);
+            }
         });
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 621, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        Area.setLabel("Área");
+        Distancia.setLabel("Distância");
 
         Preencher.setLabel("Preencher");
 
-        Area2.setLabel("Diâmetro");
+        Diametro.setLabel("Diâmetro");
 
         corExterna.setBackground(new java.awt.Color(0, 0, 0));
         corExterna.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                corExternaMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                corExternaMouseReleased(evt);
             }
         });
 
@@ -119,6 +129,9 @@ public class Tela extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 corInternaMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                corInternaMouseReleased(evt);
+            }
         });
 
         javax.swing.GroupLayout corInternaLayout = new javax.swing.GroupLayout(corInterna);
@@ -132,7 +145,7 @@ public class Tela extends javax.swing.JFrame {
             .addGap(0, 42, Short.MAX_VALUE)
         );
 
-        Area3.setLabel("Volume");
+        Volume.setLabel("Volume");
 
         Pontos.setText("Pontos");
         Pontos.addActionListener(new java.awt.event.ActionListener() {
@@ -183,30 +196,59 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        Area1.setLabel("Área");
+
+        valorSlide.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                valorSlideMouseDragged(evt);
+            }
+        });
+        valorSlide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                valorSlideMouseReleased(evt);
+            }
+        });
+
+        tamanho.setText("Tamanho(8)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Preencher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(corExterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(corInterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(Pontos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Borracha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Area2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Spary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Cilindro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Circulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Retangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Retas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(Area3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Preencher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(corExterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(corInterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1)
+                                .addComponent(Pontos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Borracha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Spary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Cilindro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Circulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Retangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Retas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Diametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Area1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(valorSlide, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tamanho)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(selecionaCor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -231,12 +273,17 @@ public class Tela extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Borracha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Area2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Area1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Area3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(Diametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tamanho)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(valorSlide, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -265,7 +312,21 @@ public class Tela extends javax.swing.JFrame {
                 D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
                 ponto.desenhar(this.painel.getGraphics());
                 break;
-            case 1:
+            case 1:               
+                if(!primeiro)
+                {
+                    x0 = evt.getX();
+                    y0 = evt.getY();
+                    primeiro = true;
+                }
+                else
+                {
+                    D1 reta = new D1(x0,y0,evt.getX(),evt.getY(),this.corExterna.getBackground());
+                    reta.desenhar(this.painel.getGraphics());
+                    if(this.Distancia.isEnabled())
+                        reta.comprimento();
+                    primeiro = false;
+                }
                 break;
             case 2:
                 break;
@@ -276,8 +337,6 @@ public class Tela extends javax.swing.JFrame {
             case 5:
                 break;
             case 6:
-                break;
-            case 7:
                 break;
         }
     }//GEN-LAST:event_painelMouseClicked
@@ -288,7 +347,13 @@ public class Tela extends javax.swing.JFrame {
                 D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
                 ponto.desenhar(this.painel.getGraphics());
                 break;
-            case 1:
+            case 1:               
+                if(!primeiro)
+                {
+                    x0 = evt.getX();
+                    y0 = evt.getY();
+                    primeiro = true;
+                }
                 break;
             case 2:
                 break;
@@ -299,8 +364,6 @@ public class Tela extends javax.swing.JFrame {
             case 5:
                 break;
             case 6:
-                break;
-            case 7:
                 break;
         }
     }//GEN-LAST:event_painelMousePressed
@@ -322,8 +385,6 @@ public class Tela extends javax.swing.JFrame {
             case 5:
                 break;
             case 6:
-                break;
-            case 7:
                 break;
         }
     }//GEN-LAST:event_painelMouseDragged
@@ -356,13 +417,62 @@ public class Tela extends javax.swing.JFrame {
         this.tipo = 6;
     }//GEN-LAST:event_BorrachaActionPerformed
 
-    private void corExternaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corExternaMouseClicked
-        this.corExterna.setBackground(this.selecionaCor.getColor());
-    }//GEN-LAST:event_corExternaMouseClicked
-
     private void corInternaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corInternaMouseClicked
         this.corInterna.setBackground(this.selecionaCor.getColor());
     }//GEN-LAST:event_corInternaMouseClicked
+
+    private void painelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseReleased
+        switch(this.tipo){
+            case 0:
+                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
+                ponto.desenhar(this.painel.getGraphics());
+                break;
+            case 1:                
+                if(primeiro)
+                {
+                    int x1 = evt.getX();
+                    int y1 = evt.getY();
+                    if((x1 - x0) > 2 || (y1 - y0) > 2)
+                    {
+                        D1 reta = new D1(x0,y0,x1,y1,this.corExterna.getBackground());
+                        reta.desenhar(this.painel.getGraphics());
+                        if(this.Distancia.isEnabled())
+                            reta.comprimento();
+                    }
+                    primeiro = false;
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+        }
+    }//GEN-LAST:event_painelMouseReleased
+
+    private void valorSlideMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideMouseReleased
+        this.valorRealSlide = Math.round(this.valorSlide.getValue()/6);
+        this.tamanho.setText("Tamanho("+valorRealSlide+")");
+    }//GEN-LAST:event_valorSlideMouseReleased
+
+    private void valorSlideMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideMouseDragged
+        this.valorRealSlide = Math.round(this.valorSlide.getValue()/6);
+        this.tamanho.setText("Tamanho("+valorRealSlide+")");
+    }//GEN-LAST:event_valorSlideMouseDragged
+
+    private void corExternaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corExternaMouseReleased
+        // TODO add your handling code here:        
+        this.corExterna.setBackground(this.selecionaCor.getColor());
+    }//GEN-LAST:event_corExternaMouseReleased
+
+    private void corInternaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corInternaMouseReleased
+        this.corInterna.setBackground(this.selecionaCor.getColor());
+    }//GEN-LAST:event_corInternaMouseReleased
 
     /**
      * @param args the command line arguments
@@ -399,24 +509,28 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox Area;
-    private java.awt.Checkbox Area2;
-    private java.awt.Checkbox Area3;
+    private java.awt.Checkbox Area1;
     private javax.swing.JButton Borracha;
     private javax.swing.JButton Cilindro;
     private javax.swing.JButton Circulo;
+    private java.awt.Checkbox Diametro;
+    private java.awt.Checkbox Distancia;
     private javax.swing.JButton Pontos;
     private java.awt.Checkbox Preencher;
     private javax.swing.JButton Retangulo;
     private javax.swing.JButton Retas;
     private javax.swing.JButton Spary;
+    private java.awt.Checkbox Volume;
     private javax.swing.JPanel corExterna;
     private javax.swing.JPanel corInterna;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel painel;
     private javax.swing.JColorChooser selecionaCor;
+    private javax.swing.JLabel tamanho;
+    private javax.swing.JSlider valorSlide;
     // End of variables declaration//GEN-END:variables
 }

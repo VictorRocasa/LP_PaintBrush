@@ -22,9 +22,12 @@ public class D1 extends D0{
     }
     
     @Override public void desenhar(Graphics g){
+        g.setColor(super.getCor());
         g.drawLine(super.getX(), super.getY(), x1, y1);
     }
-    public void comprimento(){
     
+    public void comprimento(Graphics g){
+        double comprimento = Math.sqrt((x1-super.getX())*(x1-super.getX())+(y1-super.getY())*(y1-super.getY()));
+        g.drawString(""+Math.round(comprimento), (super.getX()+x1)/2,(super.getY()+y1)/2);
     }
 }

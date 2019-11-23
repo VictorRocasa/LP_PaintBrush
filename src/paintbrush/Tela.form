@@ -9,9 +9,12 @@
         <Property name="text" type="java.lang.String" value="jToggleButton1"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JSlider" name="jSlider1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="PaintBrush"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -33,27 +36,59 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="Preencher" max="32767" attributes="0"/>
-                      <Component id="Area" min="-2" max="-2" attributes="0"/>
-                      <Component id="corExterna" max="32767" attributes="0"/>
-                      <Component id="corInterna" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="Pontos" max="32767" attributes="0"/>
-                      <Component id="Borracha" alignment="1" max="32767" attributes="0"/>
-                      <Component id="Area2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="Spary" alignment="1" max="32767" attributes="0"/>
-                      <Component id="Cilindro" alignment="1" max="32767" attributes="0"/>
-                      <Component id="Circulo" max="32767" attributes="0"/>
-                      <Component id="Retangulo" max="32767" attributes="0"/>
-                      <Component id="Retas" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="valorSlideTamanho" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="volume" min="-2" max="-2" attributes="0"/>
+                                          <Component id="diametro" min="-2" max="-2" attributes="0"/>
+                                          <Component id="area" min="-2" max="-2" attributes="0"/>
+                                          <Component id="distancia" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="pontos" max="32767" attributes="0"/>
+                                              <Component id="borracha" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="spary" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="cilindro" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="circulo" max="32767" attributes="0"/>
+                                              <Component id="retangulo" pref="83" max="32767" attributes="0"/>
+                                              <Component id="retas" alignment="1" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tamanho" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="valorSlideDensidade" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Component id="densidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Area3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Preencher" max="32767" attributes="0"/>
+                          <Component id="corExterna" max="32767" attributes="0"/>
+                          <Component id="corInterna" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="selecionaCor" alignment="1" min="-2" pref="615" max="-2" attributes="0"/>
                   <Component id="painel" max="32767" attributes="0"/>
@@ -65,35 +100,45 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="Pontos" min="-2" max="-2" attributes="0"/>
+                      <Component id="pontos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Retas" min="-2" max="-2" attributes="0"/>
+                      <Component id="retas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Retangulo" min="-2" max="-2" attributes="0"/>
+                      <Component id="retangulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Circulo" min="-2" max="-2" attributes="0"/>
+                      <Component id="circulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Cilindro" min="-2" max="-2" attributes="0"/>
+                      <Component id="cilindro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Spary" min="-2" max="-2" attributes="0"/>
+                      <Component id="spary" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Borracha" min="-2" max="-2" attributes="0"/>
+                      <Component id="borracha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Area" min="-2" max="-2" attributes="0"/>
+                      <Component id="distancia" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="area" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="diametro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="volume" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Area2" min="-2" max="-2" attributes="0"/>
+                      <Component id="tamanho" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Area3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="valorSlideTamanho" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="densidade" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="valorSlideDensidade" min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
                   <Component id="painel" max="32767" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="selecionaCor" min="-2" pref="260" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -106,9 +151,9 @@
                       <Component id="corInterna" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Preencher" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,41 +162,32 @@
     <Container class="javax.swing.JPanel" name="painel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="ff" red="ff" type="rgb"/>
+          <Color blue="c1" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="painelMouseDragged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="painelMouseClicked"/>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="painelMousePressed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="painelMouseReleased"/>
       </Events>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="621" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="361" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="java.awt.Checkbox" name="Area">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="&#xc1;rea"/>
-      </Properties>
-    </Component>
     <Component class="java.awt.Checkbox" name="Preencher">
       <Properties>
         <Property name="label" type="java.lang.String" value="Preencher"/>
-      </Properties>
-    </Component>
-    <Component class="java.awt.Checkbox" name="Area2">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="Di&#xe2;metro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JColorChooser" name="selecionaCor">
@@ -163,7 +199,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="corExternaMouseClicked"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="corExternaMouseReleased"/>
       </Events>
 
       <Layout>
@@ -197,12 +233,13 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="corInternaMouseClicked"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="corInternaMouseReleased"/>
       </Events>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -212,66 +249,109 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="java.awt.Checkbox" name="Area3">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="Volume"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Pontos">
+    <Component class="javax.swing.JButton" name="pontos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pontos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PontosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pontosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Retas">
+    <Component class="javax.swing.JButton" name="retas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Retas"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RetasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="retasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Retangulo">
+    <Component class="javax.swing.JButton" name="retangulo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ret&#xe2;ngulo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RetanguloActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="retanguloActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Circulo">
+    <Component class="javax.swing.JButton" name="circulo">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xed;rculo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CirculoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="circuloActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Cilindro">
+    <Component class="javax.swing.JButton" name="cilindro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cilindro"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CilindroActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cilindroActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Spary">
+    <Component class="javax.swing.JButton" name="spary">
       <Properties>
         <Property name="text" type="java.lang.String" value="Spray"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SparyActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sparyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Borracha">
+    <Component class="javax.swing.JButton" name="borracha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borracha"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BorrachaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="borrachaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JSlider" name="valorSlideTamanho">
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="valorSlideTamanhoMouseDragged"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="valorSlideTamanhoMouseReleased"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSlider()"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tamanho">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tamanho(8)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="distancia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="area">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc1;rea"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="diametro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Di&#xe2;metro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="volume">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volume"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="valorSlideDensidade">
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="valorSlideDensidadeMouseDragged"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="valorSlideDensidadeMouseReleased"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSlider()"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="densidade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Densidade(8)"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

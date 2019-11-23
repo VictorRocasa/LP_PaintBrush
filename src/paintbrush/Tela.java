@@ -6,10 +6,13 @@
 package paintbrush;
 
 import java.awt.Color;
-import static java.awt.Color.black;
+import static java.awt.Color.*;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+import java.awt.image.ColorModel;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
 import paintbrush.D0;
 
 /**
@@ -34,13 +37,35 @@ public class Tela extends javax.swing.JFrame {
     private void initComponents() {
 
         jColorChooser1 = new javax.swing.JColorChooser();
+        jToggleButton1 = new javax.swing.JToggleButton();
         painel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        reta = new javax.swing.JButton();
+        Area = new java.awt.Checkbox();
+        Preencher = new java.awt.Checkbox();
+        Area2 = new java.awt.Checkbox();
+        selecionaCor = new javax.swing.JColorChooser();
+        corExterna = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        corInterna = new javax.swing.JPanel();
+        Area3 = new java.awt.Checkbox();
+        Pontos = new javax.swing.JButton();
+        Retas = new javax.swing.JButton();
+        Retangulo = new javax.swing.JButton();
+        Circulo = new javax.swing.JButton();
+        Cilindro = new javax.swing.JButton();
+        Spary = new javax.swing.JButton();
+        Borracha = new javax.swing.JButton();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         painel.setBackground(new java.awt.Color(255, 255, 153));
+        painel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                painelMouseDragged(evt);
+            }
+        });
         painel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 painelMouseClicked(evt);
@@ -54,24 +79,107 @@ public class Tela extends javax.swing.JFrame {
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 621, Short.MAX_VALUE)
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 361, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Pontos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        Area.setLabel("Área");
+
+        Preencher.setLabel("Preencher");
+
+        Area2.setLabel("Diâmetro");
+
+        corExterna.setBackground(new java.awt.Color(0, 0, 0));
+        corExterna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                corExternaMouseClicked(evt);
             }
         });
 
-        reta.setText("Retas");
-        reta.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout corExternaLayout = new javax.swing.GroupLayout(corExterna);
+        corExterna.setLayout(corExternaLayout);
+        corExternaLayout.setHorizontalGroup(
+            corExternaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        corExternaLayout.setVerticalGroup(
+            corExternaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("Cor Externa:");
+
+        jLabel2.setText("Cor Interna:");
+
+        corInterna.setBackground(new java.awt.Color(255, 255, 153));
+        corInterna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                corInternaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout corInternaLayout = new javax.swing.GroupLayout(corInterna);
+        corInterna.setLayout(corInternaLayout);
+        corInternaLayout.setHorizontalGroup(
+            corInternaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        corInternaLayout.setVerticalGroup(
+            corInternaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        Area3.setLabel("Volume");
+
+        Pontos.setText("Pontos");
+        Pontos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                retaActionPerformed(evt);
+                PontosActionPerformed(evt);
+            }
+        });
+
+        Retas.setText("Retas");
+        Retas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetasActionPerformed(evt);
+            }
+        });
+
+        Retangulo.setText("Retângulo");
+        Retangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetanguloActionPerformed(evt);
+            }
+        });
+
+        Circulo.setText("Círculo");
+        Circulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CirculoActionPerformed(evt);
+            }
+        });
+
+        Cilindro.setText("Cilindro");
+        Cilindro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CilindroActionPerformed(evt);
+            }
+        });
+
+        Spary.setText("Spray");
+        Spary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SparyActionPerformed(evt);
+            }
+        });
+
+        Borracha.setText("Borracha");
+        Borracha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrachaActionPerformed(evt);
             }
         });
 
@@ -79,77 +187,182 @@ public class Tela extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jColorChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
-                .addGap(122, 122, 122))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Preencher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(corExterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(corInterna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(Pontos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Borracha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Area2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Spary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Cilindro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Circulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Retangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Retas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Area3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(selecionaCor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(Pontos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reta)
-                        .addGap(0, 255, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                        .addComponent(Retas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Retangulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Circulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cilindro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Spary)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Borracha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Area2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Area3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selecionaCor, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(corExterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(corInterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Preencher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.tipo = 0;
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void painelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseClicked
-        if(this.tipo ==  0)
-        {
-            D0 ponto = new D0(evt.getX(),evt.getY(),black);
-            ponto.desenhar(this.painel.getGraphics());
+        switch(this.tipo){
+            case 0:
+                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
+                ponto.desenhar(this.painel.getGraphics());
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
         }
     }//GEN-LAST:event_painelMouseClicked
 
     private void painelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMousePressed
         switch(this.tipo){
             case 0:
-                D0 ponto = new D0(evt.getX(),evt.getY(),black);
+                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
                 ponto.desenhar(this.painel.getGraphics());
                 break;
             case 1:
-                ArrayList<int[]> pontos = new ArrayList();
-                if(pontos.size()==0)
-                {
-                    int[] p = new int[2];
-                    p[0] = evt.getX();
-                    p[1] = evt.getY();
-                    pontos.add(p);
-                }
-                else
-                {
-                    D1 linha = new D1(pontos.get(0)[0],pontos.get(0)[1],evt.getX(),evt.getY(),black);
-                    linha.desenhar(this.painel.getGraphics());
-                }
                 break;
-            
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
         }
     }//GEN-LAST:event_painelMousePressed
 
-    private void retaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retaActionPerformed
+    private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
+        switch(this.tipo){
+            case 0:
+                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
+                ponto.desenhar(this.painel.getGraphics());
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+        }
+    }//GEN-LAST:event_painelMouseDragged
+
+    private void PontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PontosActionPerformed
+        this.tipo = 0;
+    }//GEN-LAST:event_PontosActionPerformed
+
+    private void RetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetasActionPerformed
         this.tipo = 1;
-    }//GEN-LAST:event_retaActionPerformed
+    }//GEN-LAST:event_RetasActionPerformed
+
+    private void RetanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetanguloActionPerformed
+        this.tipo = 2;
+    }//GEN-LAST:event_RetanguloActionPerformed
+
+    private void CirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CirculoActionPerformed
+        this.tipo = 3;
+    }//GEN-LAST:event_CirculoActionPerformed
+
+    private void CilindroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CilindroActionPerformed
+        this.tipo = 4;
+    }//GEN-LAST:event_CilindroActionPerformed
+
+    private void SparyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparyActionPerformed
+        this.tipo = 5;
+    }//GEN-LAST:event_SparyActionPerformed
+
+    private void BorrachaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrachaActionPerformed
+        this.tipo = 6;
+    }//GEN-LAST:event_BorrachaActionPerformed
+
+    private void corExternaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corExternaMouseClicked
+        this.corExterna.setBackground(this.selecionaCor.getColor());
+    }//GEN-LAST:event_corExternaMouseClicked
+
+    private void corInternaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corInternaMouseClicked
+        this.corInterna.setBackground(this.selecionaCor.getColor());
+    }//GEN-LAST:event_corInternaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -183,13 +396,27 @@ public class Tela extends javax.swing.JFrame {
                 new Tela().setVisible(true);
             }
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private java.awt.Checkbox Area;
+    private java.awt.Checkbox Area2;
+    private java.awt.Checkbox Area3;
+    private javax.swing.JButton Borracha;
+    private javax.swing.JButton Cilindro;
+    private javax.swing.JButton Circulo;
+    private javax.swing.JButton Pontos;
+    private java.awt.Checkbox Preencher;
+    private javax.swing.JButton Retangulo;
+    private javax.swing.JButton Retas;
+    private javax.swing.JButton Spary;
+    private javax.swing.JPanel corExterna;
+    private javax.swing.JPanel corInterna;
     private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel painel;
-    private javax.swing.JButton reta;
+    private javax.swing.JColorChooser selecionaCor;
     // End of variables declaration//GEN-END:variables
 }

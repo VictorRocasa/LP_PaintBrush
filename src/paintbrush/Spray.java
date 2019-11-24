@@ -19,11 +19,11 @@ public class Spray extends D0{
 
     public Spray(int x, int y, Color cor, int densidade, int raio) {
         super(x, y, cor);
-        this.densidade = densidade/3;
+        this.densidade = densidade;
         this.raio = raio*2;
     }
     
-    
+    @Override
     public void desenhar(Graphics g){
         g.setColor(super.getCor());
         Random r = new Random();

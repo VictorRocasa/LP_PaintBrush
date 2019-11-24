@@ -5,10 +5,35 @@
  */
 package paintbrush;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Random;
+
 /**
  *
  * @author 09795410695
  */
-public class Spray {
+public class Spray extends D0{
     int raio;
+    int densidade;
+
+    public Spray(int x, int y, Color cor, int densidade, int raio) {
+        super(x, y, cor);
+        this.densidade = densidade/3;
+        this.raio = raio*2;
+    }
+    
+    
+    public void desenhar(Graphics g){
+        g.setColor(super.getCor());
+        Random r = new Random();
+        int X = super.getX();
+        int Y = super.getY();
+        for(int i = 0; i < densidade; i++)
+        { 
+            int deslocamentoX = (int)Math.round(raio*(r.nextDouble()-0.5));
+            int deslocamentoY = (int)Math.round(raio*(r.nextDouble()-0.5));
+            g.drawLine(X+deslocamentoX,Y+deslocamentoY,X+deslocamentoX,Y+deslocamentoY);
+        }
+    }
 }

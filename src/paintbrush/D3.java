@@ -11,11 +11,12 @@ import java.awt.Color;
  *
  * @author 09795410695
  */
-public abstract class D3 extends D0{
+public abstract class D3 extends D2{
     private int altura;
 
-    public D3(int x, int y, Color cor) {
-        super(x, y, cor);
+    public D3(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
+        super(x, y, x1, y1, corExterna, corInterna);
     }
-    public abstract int volume();
+
+    public abstract void volume();
 }

@@ -5,7 +5,9 @@
  */
 package paintbrush;
 
+import static java.awt.Color.BLACK;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 /**
@@ -27,12 +29,15 @@ public class Tela extends javax.swing.JFrame {
     int x0, y0;//x0 e y0 do primeiro ponto
     int valorRealTamanho;//valor do slide de tamanho
     int valorRealDensidade;//valor do slide de spary
+    ArrayList<D0> pontosPoligono = new ArrayList();
+    boolean poligono;
     
     public Tela() {
         initComponents();
         this.g = this.painel.getGraphics();
         this.valorRealTamanho = 16;
         this.valorRealDensidade = 16;
+        this.poligono = false;
     }
 
     /**
@@ -75,6 +80,7 @@ public class Tela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PaintBrush");
+        setResizable(false);
 
         painel.setBackground(new java.awt.Color(255, 255, 193));
         painel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -83,6 +89,9 @@ public class Tela extends javax.swing.JFrame {
             }
         });
         painel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                painelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 painelMousePressed(evt);
             }
@@ -332,7 +341,7 @@ public class Tela extends javax.swing.JFrame {
                         .addComponent(valorSlideDensidade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(distancia)
                             .addComponent(area)
@@ -505,8 +514,31 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_valorSlideDensidadeMouseReleased
 
     private void poligonoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poligonoBotaoActionPerformed
-        // TODO add your handling code here:
+        this.tipo = 7;
+        if(!this.poligono)
+            this.poligono = true;
+        else
+        {
+            if(this.pontosPoligono.size() > 0)
+            {
+               this.poligono = false;
+               Poligono p = new Poligono(0,0,0,0,this.corExterna.getBackground(),BLACK,this.pontosPoligono);
+               p.desenhar(g);
+               this.pontosPoligono.clear();  
+            }
+        }
     }//GEN-LAST:event_poligonoBotaoActionPerformed
+
+    private void painelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseClicked
+        int X = evt.getX();
+        int Y = evt.getY();
+        if(this.poligono)
+        {
+            D0 ponto = new D0(X,Y,this.corExterna.getBackground());
+            ponto.desenhar(g);
+            this.pontosPoligono.add(ponto);
+        }
+    }//GEN-LAST:event_painelMouseClicked
 
     /**
      * @param args the command line arguments

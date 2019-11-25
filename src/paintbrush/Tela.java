@@ -14,14 +14,13 @@ import javax.swing.colorchooser.AbstractColorChooserPanel;
  *
  * @author 09795410695
  */
-
-/**progresso:
- * 
- * base do algoritmo
- * Pontos
- * Retas
- * 
- **/
+/**
+ * progresso:
+ *
+ * base do algoritmo Pontos Retas
+ *
+ *
+ */
 public class Tela extends javax.swing.JFrame {
 
     Graphics g;//Modelo do painel de desenho
@@ -29,15 +28,16 @@ public class Tela extends javax.swing.JFrame {
     int x0, y0;//x0 e y0 do primeiro ponto
     int valorRealTamanho;//valor do slide de tamanho
     int valorRealDensidade;//valor do slide de spary
-    ArrayList<D0> pontosPoligono = new ArrayList();
-    boolean poligono;
-    
+    ArrayList<D0> pontosPoligono;//array para guardar os pontos do poligono
+    boolean poligono;//usado pra ver se o poligono está ativo ou não
+
     public Tela() {
         initComponents();
         this.g = this.painel.getGraphics();
-        this.valorRealTamanho = 16;
-        this.valorRealDensidade = 16;
-        this.poligono = false;
+        this.valorRealTamanho = 16;//seta estado inicial do Tamanho
+        this.valorRealDensidade = 16;//seta estado inicial da Densidade
+        this.poligono = false;//seta estado inicial do poligono como falso
+        pontosPoligono = new ArrayList();//Inicia o Array de pontos
     }
 
     /**
@@ -381,20 +381,20 @@ public class Tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void painelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMousePressed
-       //Salva a pocição inicial do evento quando pressiona o mouse
+        //Salva a pocição inicial do evento quando pressiona o mouse
         x0 = evt.getX();
         y0 = evt.getY();
-        if(tipo==5)
+        if (tipo == 5)//se tipo 5, desenha um spray na tela
         {
-                Spray spray = new Spray(evt.getX(),evt.getY(),this.corExterna.getBackground(),this.valorRealDensidade, this.valorRealTamanho);
-                spray.desenhar(g); 
+            Spray spray = new Spray(evt.getX(), evt.getY(), this.corExterna.getBackground(), this.valorRealDensidade, this.valorRealTamanho);
+            spray.desenhar(g);
         }
     }//GEN-LAST:event_painelMousePressed
 
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
-        switch(this.tipo){//quando arrasta o mouse pressionado e 
+        switch (this.tipo) {//quando arrasta o mouse pressionado e 
             case 0://se o tipo é 0 desenha um ponto nas posições que o mouse passou
-                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
+                D0 ponto = new D0(evt.getX(), evt.getY(), this.corExterna.getBackground());
                 ponto.desenhar(g);
                 break;
             case 1://tipo de figura reta
@@ -406,13 +406,13 @@ public class Tela extends javax.swing.JFrame {
             case 4://tipo de figura cilindro
                 break;
             case 5://tipo de figura spray
-                Spray spray = new Spray(evt.getX(),evt.getY(),this.corExterna.getBackground(),this.valorRealDensidade, this.valorRealTamanho);
+                Spray spray = new Spray(evt.getX(), evt.getY(), this.corExterna.getBackground(), this.valorRealDensidade, this.valorRealTamanho);
                 spray.desenhar(g);
                 break;
             case 6://tipo de figura borracha
                 int x = evt.getX();
                 int y = evt.getY();
-                Retangulo borracha = new Retangulo(x,y,x+valorRealTamanho,y+valorRealTamanho,this.painel.getBackground(),this.painel.getBackground());
+                Retangulo borracha = new Retangulo(x, y, x + valorRealTamanho, y + valorRealTamanho, this.painel.getBackground(), this.painel.getBackground());
                 borracha.desenhar(g, true);
                 break;
         }
@@ -451,121 +451,135 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_corInternaMouseClicked
 
     private void painelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseReleased
-            int x1 = evt.getX();//ponto x final
-            int y1 = evt.getY();//ponto y final
-            switch(this.tipo){//quando libera o mouse pressionado e 
+        int x1 = evt.getX();//ponto x final
+        int y1 = evt.getY();//ponto y final
+        switch (this.tipo) {//quando libera o mouse pressionado e... 
             case 0://se o tipo é 0 desenha um ponto nas posição do evento
-                D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
+                D0 ponto = new D0(evt.getX(), evt.getY(), this.corExterna.getBackground());
                 ponto.desenhar(g);
                 break;
             case 1://se o tipo é 1 desenha uma reta entre a posição salva e a atual 
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o dezenho 
+                if (((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2))//evita fazer o dezenho 
                 {                                                                         //numa distancia muito curta
-                    D1 reta = new D1(x0,y0,x1,y1,this.corExterna.getBackground());
+                    D1 reta = new D1(x0, y0, x1, y1, this.corExterna.getBackground());
                     reta.desenhar(g);
-                    if(this.distancia.isSelected())//verifica se a opção ditância esta selecionada
+                    if (this.distancia.isSelected())//verifica se a opção ditância esta selecionada
+                    {
                         reta.comprimento(g);//chama a função que calcua a distâcia
+                    }
                 }
                 break;
             case 2://se o tipo é 2 desenha um retangulo entre a posição salva e a atual
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                if (((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2))//evita fazer o desenho
                 {                                                                         //numa distancia muito curta
-                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
+                    if (x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
+                    if (y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Retangulo retangulo = new Retangulo(x0,y0,x1,y1,this.corExterna.getBackground(),this.corInterna.getBackground());
+                    Retangulo retangulo = new Retangulo(x0, y0, x1, y1, this.corExterna.getBackground(), this.corInterna.getBackground());
                     retangulo.desenhar(g, this.preencher.isSelected());
-                    if(this.area.isSelected())//verifica se a opção area esta selecionada
+                    if (this.area.isSelected())//verifica se a opção area esta selecionada
+                    {
                         retangulo.area(g);//chama a função que calcua a area;
-                    if(this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                    }
+                    if (this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                    {
                         retangulo.perimetro(g);//chama a função que calcua o perimetro
+                    }
                 }
                 break;
             case 3://se o tipo é 3 desenha um círculo entre a posição salva e a atual
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                if (((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2))//evita fazer o desenho
                 {                                                                         //numa distancia muito curta
-                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
+                    if (x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
+                    if (y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    int desX = (x1-x0);
-                    int desY = (y1-y0);
-                    int raio = (desX+desY)/2;
-                    Circulo circulo = new Circulo(x0,y0,x0+raio,y0+raio,this.corExterna.getBackground(),this.corInterna.getBackground());
+                    int desX = (x1 - x0);
+                    int desY = (y1 - y0);
+                    int raio = (desX + desY) / 2;
+                    Circulo circulo = new Circulo(x0, y0, x0 + raio, y0 + raio, this.corExterna.getBackground(), this.corInterna.getBackground());
                     circulo.desenhar(g, this.preencher.isSelected());
-                    if(this.area.isSelected())//verifica se a opção area esta selecionada
+                    if (this.area.isSelected())//verifica se a opção area esta selecionada
+                    {
                         circulo.area(g);//chama a função que calcua a area;
-                    if(this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                    }
+                    if (this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                    {
                         circulo.perimetro(g);//chama a função que calcua o perimetro
+                    }
                 }
                 break;
             case 4://se o tipo é 4 desenha um cilindro entre a posição salva e a atual
-             if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
-                {                                                                      //numa distancia muito curta
-                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
+                if (((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2))//evita fazer o desenho
+                {                                                                         //numa distancia muito curta
+                    if (x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
+                    if (y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Cilindro cilindro = new Cilindro(x0,y0,x1,y1,this.corExterna.getBackground(),this.corExterna.getBackground());
+                    Cilindro cilindro = new Cilindro(x0, y0, x1, y1, this.corExterna.getBackground(), this.corExterna.getBackground());
                     cilindro.desenhar(g);
-                    if(this.volume.isSelected())//verifica se a opção volume esta selecionada
+                    if (this.volume.isSelected())//verifica se a opção volume esta selecionada
+                    {
                         cilindro.volume(g);//chama a função que calcua o volume
+                    }
                 }
                 break;
             case 8://se o tipo é 8 desenha uma elipse entre a posição salva e a atual
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                if (((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2))//evita fazer o desenho
                 {                                                                         //numa distancia muito curta
-                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
+                    if (x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
+                    if (y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Elipse elipse = new Elipse(x0,y0,x1,y1,this.corExterna.getBackground(),this.corInterna.getBackground());
+                    Elipse elipse = new Elipse(x0, y0, x1, y1, this.corExterna.getBackground(), this.corInterna.getBackground());
                     elipse.desenhar(g, this.preencher.isSelected());
                 }
         }
     }//GEN-LAST:event_painelMouseReleased
 
     private void valorSlideTamanhoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideTamanhoMouseReleased
-        this.valorRealTamanho = Math.round(8+this.valorSlideTamanho.getValue()/4);
-        this.tamanho.setText("Tamanho("+(valorRealTamanho)+")");
+        //Ao soltar o slide calcula o novo valor do tamanho
+        this.valorRealTamanho = Math.round(8 + this.valorSlideTamanho.getValue() / 4);
+        this.tamanho.setText("Tamanho(" + (valorRealTamanho) + ")");
     }//GEN-LAST:event_valorSlideTamanhoMouseReleased
 
     private void valorSlideTamanhoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideTamanhoMouseDragged
-        this.valorRealTamanho = Math.round(8+this.valorSlideTamanho.getValue()/4);
-        this.tamanho.setText("Tamanho("+(valorRealTamanho)+")");
+        //Ao arrastar o slide calcula o novo valor do tamanho
+        this.valorRealTamanho = Math.round(8 + this.valorSlideTamanho.getValue() / 4);
+        this.tamanho.setText("Tamanho(" + (valorRealTamanho) + ")");
     }//GEN-LAST:event_valorSlideTamanhoMouseDragged
 
     private void corExternaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corExternaMouseReleased
@@ -579,38 +593,38 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_corInternaMouseReleased
 
     private void valorSlideDensidadeMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideDensidadeMouseDragged
-        this.valorRealDensidade = Math.round(8+this.valorSlideDensidade.getValue());
-        this.densidade.setText("Densidade("+valorRealDensidade+")");
+        //Ao soltar o slide calcula o novo valor da densidade
+        this.valorRealDensidade = Math.round(8 + this.valorSlideDensidade.getValue());
+        this.densidade.setText("Densidade(" + valorRealDensidade + ")");
     }//GEN-LAST:event_valorSlideDensidadeMouseDragged
 
     private void valorSlideDensidadeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorSlideDensidadeMouseReleased
-        this.valorRealDensidade = Math.round(8+this.valorSlideDensidade.getValue());
-        this.densidade.setText("Densidade("+valorRealDensidade+")");
+        //Ao arrastar o slide calcula o novo valor da densidade
+        this.valorRealDensidade = Math.round(8 + this.valorSlideDensidade.getValue());
+        this.densidade.setText("Densidade(" + valorRealDensidade + ")");
     }//GEN-LAST:event_valorSlideDensidadeMouseReleased
 
     private void poligonoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poligonoBotaoActionPerformed
         this.tipo = 7;//se o tipo é 7 desenha um poligono ligando os pontos de uma lista de pontos salva
-        if(!this.poligono)//usado para detectar q vc selecionou a opção poligono
+        if (!this.poligono)//usado para detectar q vc selecionou a opção poligono
             this.poligono = true;
-        else
-        {
-            if(this.pontosPoligono.size() > 0)//usado para detectar q vc clicou pela segunda vez no poligono
+        else {
+            if (this.pontosPoligono.size() > 0)//usado para detectar q vc clicou pela segunda vez no poligono
             {                                //informando assim q vc terinou de marcar os pontos
-               this.poligono = false;
-               Poligono p = new Poligono(0,0,0,0,this.corExterna.getBackground(),BLACK,this.pontosPoligono);
-               p.desenhar(g);//plota o poligono
-               this.pontosPoligono.clear();  
+                this.poligono = false;
+                Poligono p = new Poligono(0, 0, 0, 0, this.corExterna.getBackground(), this.corInterna.getBackground(), this.pontosPoligono);
+                p.desenhar(g,this.preencher.isSelected());//plota o poligono
+                this.pontosPoligono.clear();
             }
         }
     }//GEN-LAST:event_poligonoBotaoActionPerformed
 
     private void painelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseClicked
-        int X = evt.getX();
-        int Y = evt.getY();
-        if(this.poligono)
-        {
-            D0 ponto = new D0(X,Y,this.corExterna.getBackground());
-            ponto.desenhar(g);
+        if (this.poligono) {//Se o polígono estiver ativo adiciona o ponto atual à lista
+            int X = evt.getX();
+            int Y = evt.getY();
+            D0 ponto = new D0(X, Y, this.corExterna.getBackground());
+            ponto.desenhar(g);//desenha o ponto para orientação do usuário
             this.pontosPoligono.add(ponto);
         }
     }//GEN-LAST:event_painelMouseClicked

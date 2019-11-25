@@ -22,12 +22,23 @@ public class Poligono extends D2{
         this.pontos = pontos;
     }
 
-    @Override
-    public void desenhar(Graphics g){
+    public void desenhar(Graphics g, boolean preencher){
         int[] xs = new int[pontos.size()+1];
         int[] ys = new int[pontos.size()+1];
-        g.setColor(super.getCor());
         int i;
+        if(preencher)//se preencher selecionado preenche com a cor interna
+        {
+            g.setColor(super.getCorInterna());
+            for(i = 0; i < pontos.size(); i++)
+            {
+                xs[i] = pontos.get(i).getX();
+                ys[i] = pontos.get(i).getY();
+            }
+                xs[i] = pontos.get(0).getX();
+                ys[i] = pontos.get(0).getY();
+            g.fillPolygon(xs, ys, pontos.size()+1);
+        }
+        g.setColor(super.getCor());
         for(i = 0; i < pontos.size(); i++)
         {
             xs[i] = pontos.get(i).getX();

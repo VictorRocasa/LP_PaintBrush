@@ -11,8 +11,8 @@ import java.awt.Graphics;
  * @author 09795410695
  */
 public class D0 {
-    private int x, y;
-    private Color cor;
+    private int x, y;//coordenadas do ponto
+    private Color cor;//cor do ponto
 
     public D0(int x, int y, Color cor) {
         this.x = x;

@@ -18,14 +18,14 @@ public class Elipse extends D2{
 
     public Elipse(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
         super(x, y, x1, y1, corExterna, corInterna);
-        this.horizontal = x1 - x;
-        this.vertical = y1 - y;
+        this.horizontal = x1 - x;//raio horizontal
+        this.vertical = y1 - y;//raio vertical
     }
 
     public void desenhar(Graphics g, Boolean preencher) {
         int x = super.getX();
         int y = super.getY();
-        if(preencher)
+        if(preencher)//se preencher selecionado preenche com a cor interna
         {
             g.setColor(super.getCorInterna()); 
             g.fillOval(x, y, horizontal, vertical);

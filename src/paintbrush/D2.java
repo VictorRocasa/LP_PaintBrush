@@ -20,8 +20,8 @@ public abstract class D2 extends D1{
         this.corInterna = corInterna;
     }
        
-    public abstract void area(Graphics g);
-    public abstract void perimetro(Graphics g);
+    public abstract void area(Graphics g);//calcula a area
+    public abstract void perimetro(Graphics g);//calcula o perimetro
 
     public Color getCorInterna() {
         return corInterna;

@@ -26,7 +26,7 @@ import java.awt.Graphics;
  */
 public class Cilindro extends D3{
     int base;
-    int largura = 10;
+    int largura;
     Elipse eDECima;
     Elipse eDEBaixo;
     D1 retaDaEsquerda;
@@ -35,6 +35,8 @@ public class Cilindro extends D3{
    
     public Cilindro(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
         super(x, y, x1, y1, corExterna, corInterna);  
+        largura = 10;
+        base = x1-x;
     }
     
     @Override
@@ -54,18 +56,18 @@ public class Cilindro extends D3{
 
     }  
 
-    public void volume(Graphics g) {
-        double volume = (10/2)*(10/2)*(super.getX1()-super.getX())*(super.getY1()-super.getY());
+    public void volume(Graphics g) {//calcula volume
+        double volume = Math.PI * (base * base) * super.getAltura();
         g.drawString(""+Math.round(volume)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
     }
 
     @Override
-    public void area(Graphics g) {
+    public void area(Graphics g) {//só está por herança mas não é utilizada
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void perimetro(Graphics g) {
+    public void perimetro(Graphics g) {//só está por herança mas não é utilizada 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

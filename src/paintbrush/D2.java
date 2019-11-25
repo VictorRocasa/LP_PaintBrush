@@ -15,7 +15,7 @@ import java.awt.Graphics;
 public abstract class D2 extends D1{
     private Color corInterna;
 
-    public D2(int x, int y, int x1, int y1, Color corInterna, Color corExterna) {
+    public D2(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
         super(x, y, x1, y1, corExterna);
         this.corInterna = corInterna;
     }

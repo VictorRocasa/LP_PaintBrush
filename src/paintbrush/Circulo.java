@@ -15,8 +15,8 @@ import java.awt.Graphics;
 public class Circulo extends Elipse{
     int raio;
 
-    public Circulo(int x, int y, int x1, int y1, Color corInterna, Color corExterna) {
-        super(x, y, x1, y1, corInterna, corExterna);
+    public Circulo(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
+        super(x, y, x1, y1, corExterna, corInterna);
         this.raio = (x1-x)/2;
     }
 

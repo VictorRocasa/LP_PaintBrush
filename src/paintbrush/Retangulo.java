@@ -16,8 +16,8 @@ public class Retangulo extends D2{
     private int base;
     private int largura;
 
-    public Retangulo(int x0, int y0, int x1, int y1, Color corInterna, Color corExterna) {
-        super(x0, y0, x1, y1, corInterna, corExterna);
+    public Retangulo(int x0, int y0, int x1, int y1, Color corExterna, Color corInterna) {
+        super(x0, y0, x1, y1, corExterna, corInterna);
         this.base = x1 - x0;
         this.largura = y1 - y0;
     }

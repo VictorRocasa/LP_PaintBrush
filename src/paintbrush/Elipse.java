@@ -16,8 +16,8 @@ public class Elipse extends D2{
 
     int horizontal, vertical;
 
-    public Elipse(int x, int y, int x1, int y1, Color corInterna, Color corExterna) {
-        super(x, y, x1, y1, corInterna, corExterna);
+    public Elipse(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
+        super(x, y, x1, y1, corExterna, corInterna);
         this.horizontal = x1 - x;
         this.vertical = y1 - y;
     }

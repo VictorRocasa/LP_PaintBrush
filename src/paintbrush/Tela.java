@@ -277,13 +277,13 @@ public class Tela extends javax.swing.JFrame {
                             .addComponent(poligonoBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sprayBotao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(borrachaBotao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 35, Short.MAX_VALUE)
+                        .addGap(0, 38, Short.MAX_VALUE)
                         .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(128, Short.MAX_VALUE)
+                                .addContainerGap(124, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(distancia)
@@ -305,21 +305,19 @@ public class Tela extends javax.swing.JFrame {
                                             .addComponent(preencher))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
+                                        .addGap(12, 12, 12)
                                         .addComponent(tamanho))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(valorSlideTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(valorSlideTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(valorSlideDensidade, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(60, 60, 60))
+                                    .addComponent(valorSlideDensidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(densidade)
-                                        .addGap(80, 80, 80)))))
+                                        .addGap(20, 20, 20)))
+                                .addGap(58, 58, 58)))
                         .addComponent(selecionaCor, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -339,14 +337,24 @@ public class Tela extends javax.swing.JFrame {
                                     .addComponent(perimetro)
                                     .addComponent(volume))
                                 .addGap(9, 9, 9)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(corExterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(corInterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(preencher))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(corExterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(corInterna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(preencher)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(densidade)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valorSlideDensidade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tamanho)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valorSlideTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(selecionaCor, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pontoBotao)
@@ -365,17 +373,7 @@ public class Tela extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(borrachaBotao)
                         .addGap(18, 18, 18)
-                        .addComponent(elipseBotao)
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(densidade)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valorSlideDensidade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tamanho)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valorSlideTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                        .addComponent(elipseBotao)))
                 .addGap(14, 14, 14))
         );
 
@@ -395,23 +393,23 @@ public class Tela extends javax.swing.JFrame {
 
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
         switch(this.tipo){//quando arrasta o mouse pressionado e 
-            case 0://o tipo é 0 desenha um ponto nas posições que o mouse passou
+            case 0://se o tipo é 0 desenha um ponto nas posições que o mouse passou
                 D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
                 ponto.desenhar(g);
                 break;
-            case 1:
+            case 1://tipo de figura reta
                 break;
-            case 2:
+            case 2://tipo de figura retangulo
                 break;
-            case 3:
+            case 3://tipo de figura circulo
                 break;
-            case 4:
+            case 4://tipo de figura cilindro
                 break;
-            case 5:
+            case 5://tipo de figura spray
                 Spray spray = new Spray(evt.getX(),evt.getY(),this.corExterna.getBackground(),this.valorRealDensidade, this.valorRealTamanho);
                 spray.desenhar(g);
                 break;
-            case 6:
+            case 6://tipo de figura borracha
                 int x = evt.getX();
                 int y = evt.getY();
                 Retangulo borracha = new Retangulo(x,y,x+valorRealTamanho,y+valorRealTamanho,this.painel.getBackground(),this.painel.getBackground());
@@ -453,55 +451,55 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_corInternaMouseClicked
 
     private void painelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseReleased
-            int x1 = evt.getX();
-            int y1 = evt.getY();
+            int x1 = evt.getX();//ponto x final
+            int y1 = evt.getY();//ponto y final
             switch(this.tipo){//quando libera o mouse pressionado e 
-            case 0://o tipo é 0 desenha um ponto nas posição do evento
+            case 0://se o tipo é 0 desenha um ponto nas posição do evento
                 D0 ponto = new D0(evt.getX(),evt.getY(),this.corExterna.getBackground());
                 ponto.desenhar(g);
                 break;
-            case 1://o mouse, desenha uma reta entre a posição salva e a atual
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )
-                {
+            case 1://se o tipo é 1 desenha uma reta entre a posição salva e a atual 
+                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o dezenho 
+                {                                                                         //numa distancia muito curta
                     D1 reta = new D1(x0,y0,x1,y1,this.corExterna.getBackground());
                     reta.desenhar(g);
-                    if(this.distancia.isSelected())
-                        reta.comprimento(g);
+                    if(this.distancia.isSelected())//verifica se a opção ditância esta selecionada
+                        reta.comprimento(g);//chama a função que calcua a distâcia
                 }
                 break;
-            case 2:
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )
-                {
-                    if(x0 > x1)
+            case 2://se o tipo é 2 desenha um retangulo entre a posição salva e a atual
+                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                {                                                                         //numa distancia muito curta
+                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)
+                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Retangulo retangulo = new Retangulo(x0,y0,x1,y1,this.corInterna.getBackground(),this.corExterna.getBackground());
+                    Retangulo retangulo = new Retangulo(x0,y0,x1,y1,this.corExterna.getBackground(),this.corInterna.getBackground());
                     retangulo.desenhar(g, this.preencher.isSelected());
-                    if(this.area.isSelected())
-                        retangulo.area(g);
-                    if(this.perimetro.isSelected())
-                        retangulo.perimetro(g);
+                    if(this.area.isSelected())//verifica se a opção area esta selecionada
+                        retangulo.area(g);//chama a função que calcua a area;
+                    if(this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                        retangulo.perimetro(g);//chama a função que calcua o perimetro
                 }
                 break;
-            case 3:
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )
-                {
-                    if(x0 > x1)
+            case 3://se o tipo é 3 desenha um círculo entre a posição salva e a atual
+                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                {                                                                         //numa distancia muito curta
+                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)
+                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
@@ -510,50 +508,51 @@ public class Tela extends javax.swing.JFrame {
                     int desX = (x1-x0);
                     int desY = (y1-y0);
                     int raio = (desX+desY)/2;
-                    Circulo circulo = new Circulo(x0,y0,x0+raio,y0+raio,this.corInterna.getBackground(),this.corExterna.getBackground());
+                    Circulo circulo = new Circulo(x0,y0,x0+raio,y0+raio,this.corExterna.getBackground(),this.corInterna.getBackground());
                     circulo.desenhar(g, this.preencher.isSelected());
-                    if(this.area.isSelected())
-                        circulo.area(g);
-                    if(this.perimetro.isSelected())
-                        circulo.perimetro(g);
+                    if(this.area.isSelected())//verifica se a opção area esta selecionada
+                        circulo.area(g);//chama a função que calcua a area;
+                    if(this.perimetro.isSelected())//verifica se a opção érimetro esta selecionada
+                        circulo.perimetro(g);//chama a função que calcua o perimetro
                 }
                 break;
-            case 4:
-             if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )
-                {
-                    if(x0 > x1)
+            case 4://se o tipo é 4 desenha um cilindro entre a posição salva e a atual
+             if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                {                                                                      //numa distancia muito curta
+                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)
+                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Cilindro cilindro = new Cilindro(x0,y0,x1,y1,this.corInterna.getBackground(),this.corExterna.getBackground());
+                    Cilindro cilindro = new Cilindro(x0,y0,x1,y1,this.corExterna.getBackground(),this.corExterna.getBackground());
                     cilindro.desenhar(g);
-                    cilindro.volume(g);
+                    if(this.volume.isSelected())//verifica se a opção volume esta selecionada
+                        cilindro.volume(g);//chama a função que calcua o volume
                 }
                 break;
-            case 8:
-                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )
-                {
-                    if(x0 > x1)
+            case 8://se o tipo é 8 desenha uma elipse entre a posição salva e a atual
+                if(((x1 - x0) > 2 || (y1 - y0) > 2) || ((x1 - x0) < -2 || (y1 - y0) < -2) )//evita fazer o desenho
+                {                                                                         //numa distancia muito curta
+                    if(x0 > x1)//trata a inverção de cor se puxar da direira pra esquerda
                     {
                         int aux = x1;
                         x1 = x0;
                         x0 = aux;
                     }
-                    if(y0 > y1)
+                    if(y0 > y1)//trata a inverção de cor se puxar de baixo pra cima
                     {
                         int aux = y1;
                         y1 = y0;
                         y0 = aux;
                     }
-                    Elipse elipse = new Elipse(x0,y0,x1,y1,this.corInterna.getBackground(),this.corExterna.getBackground());
+                    Elipse elipse = new Elipse(x0,y0,x1,y1,this.corExterna.getBackground(),this.corInterna.getBackground());
                     elipse.desenhar(g, this.preencher.isSelected());
                 }
         }
@@ -590,16 +589,16 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_valorSlideDensidadeMouseReleased
 
     private void poligonoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poligonoBotaoActionPerformed
-        this.tipo = 7;
-        if(!this.poligono)
+        this.tipo = 7;//se o tipo é 7 desenha um poligono ligando os pontos de uma lista de pontos salva
+        if(!this.poligono)//usado para detectar q vc selecionou a opção poligono
             this.poligono = true;
         else
         {
-            if(this.pontosPoligono.size() > 0)
-            {
+            if(this.pontosPoligono.size() > 0)//usado para detectar q vc clicou pela segunda vez no poligono
+            {                                //informando assim q vc terinou de marcar os pontos
                this.poligono = false;
                Poligono p = new Poligono(0,0,0,0,this.corExterna.getBackground(),BLACK,this.pontosPoligono);
-               p.desenhar(g);
+               p.desenhar(g);//plota o poligono
                this.pontosPoligono.clear();  
             }
         }

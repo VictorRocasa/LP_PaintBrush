@@ -17,11 +17,12 @@ import java.util.ArrayList;
 public class Poligono extends D2{
     ArrayList<D0> pontos = new ArrayList();
     
-    public Poligono(int x, int y, int x1, int y1, Color corInterna, Color corExterna, ArrayList pontos) {
+    public Poligono(int x, int y, int x1, int y1, Color corExterna, Color corInterna, ArrayList pontos) {
         super(x, y, x1, y1, corExterna, corInterna);
         this.pontos = pontos;
     }
 
+    @Override
     public void desenhar(Graphics g){
         int[] xs = new int[pontos.size()+1];
         int[] ys = new int[pontos.size()+1];

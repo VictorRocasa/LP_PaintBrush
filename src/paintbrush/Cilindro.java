@@ -27,6 +27,7 @@ import java.awt.Graphics;
 public class Cilindro extends D3{
     int base;
     int largura;
+    int raio;
     Elipse eDECima;
     Elipse eDEBaixo;
     D1 retaDaEsquerda;
@@ -37,6 +38,7 @@ public class Cilindro extends D3{
         super(x, y, x1, y1, corExterna, corInterna);  
         largura = 10;
         base = x1-x;
+        raio = base/2;
     }
     
     @Override
@@ -57,7 +59,8 @@ public class Cilindro extends D3{
     }  
 
     public void volume(Graphics g) {//calcula volume
-        double volume = Math.PI * (base * base) * super.getAltura();
+        System.out.println("");
+        double volume = (Math.PI * Math.pow(raio, 2)) * super.getAltura();
         g.drawString(""+Math.round(volume)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
     }
 

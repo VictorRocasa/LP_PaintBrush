@@ -20,7 +20,7 @@ public class Spray extends D0{
     public Spray(int x, int y, Color cor, int densidade, int raio) {
         super(x, y, cor);
         this.densidade = densidade;
-        this.raio = raio*2;
+        this.raio = raio*2;//diametro 
     }
     
     @Override
@@ -29,7 +29,7 @@ public class Spray extends D0{
         Random r = new Random();
         int X = super.getX();
         int Y = super.getY();
-        for(int i = 0; i < densidade; i++)
+        for(int i = 0; i < densidade; i++)//plota vários pontos usando um raio de referencia
         { 
             int deslocamentoX = (int)Math.round(raio*(r.nextDouble()-0.5));
             int deslocamentoY = (int)Math.round(raio*(r.nextDouble()-0.5));

@@ -35,12 +35,12 @@ public class Elipse extends D2{
     }
 
     @Override
-    public void area(Graphics g) {
+    public void area(Graphics g) {//só está por herança mas não é utilizada
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void perimetro(Graphics g) {
+    public void perimetro(Graphics g) {//só está por herança mas não é utilizada
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

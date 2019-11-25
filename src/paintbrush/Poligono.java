@@ -23,40 +23,34 @@ public class Poligono extends D2{
     }
 
     public void desenhar(Graphics g, boolean preencher){
-        int[] xs = new int[pontos.size()+1];
-        int[] ys = new int[pontos.size()+1];
-        int i;
+        int[] xs = new int[pontos.size()];//pontos x do poligono
+        int[] ys = new int[pontos.size()];//pontos y do poligono
         if(preencher)//se preencher selecionado preenche com a cor interna
         {
             g.setColor(super.getCorInterna());
-            for(i = 0; i < pontos.size(); i++)
+            for(int i = 0; i < pontos.size(); i++)
             {
                 xs[i] = pontos.get(i).getX();
                 ys[i] = pontos.get(i).getY();
             }
-                xs[i] = pontos.get(0).getX();
-                ys[i] = pontos.get(0).getY();
-            g.fillPolygon(xs, ys, pontos.size()+1);
+            g.fillPolygon(xs, ys, pontos.size());
         }
         g.setColor(super.getCor());
-        for(i = 0; i < pontos.size(); i++)
+        for(int i = 0; i < pontos.size(); i++)
         {
             xs[i] = pontos.get(i).getX();
             ys[i] = pontos.get(i).getY();
         }
-            xs[i] = pontos.get(0).getX();
-            ys[i] = pontos.get(0).getY();
-        g.drawPolygon(xs, ys, pontos.size()+1);
-        
+        g.drawPolygon(xs, ys, pontos.size());
     }   
     
     @Override
-    public void area(Graphics g) {
+    public void area(Graphics g) {//só está por herança mas não é utilizada
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void perimetro(Graphics g) {
+    public void perimetro(Graphics g) {//só está por herança mas não é utilizada
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  

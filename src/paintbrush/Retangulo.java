@@ -25,7 +25,7 @@ public class Retangulo extends D2{
     public void desenhar(Graphics g, boolean preencher){
         int x = super.getX();
         int y = super.getY();
-        if(preencher)
+        if(preencher)//se preencher selecionado preenche com a cor interna
         {
             g.setColor(super.getCorInterna());            
             g.fillRect(x, y, base, largura);
@@ -35,13 +35,13 @@ public class Retangulo extends D2{
     }    
 
     @Override
-    public void area(Graphics g) {
+    public void area(Graphics g) {//calcula a área
         double area = base * largura;
         g.drawString(""+Math.round(area)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
     }
 
     @Override
-    public void perimetro(Graphics g) {
+    public void perimetro(Graphics g) {//calcula o perímetro
         double perimetro = 2*base + 2*largura;
         g.drawString(""+Math.round(perimetro)+"px", (super.getX()+super.getX1())/2,super.getY());
     }

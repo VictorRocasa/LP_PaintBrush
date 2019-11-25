@@ -21,13 +21,13 @@ public class Circulo extends Elipse{
     }
 
     @Override
-    public void area(Graphics g) {
-        double area = Math.sqrt(raio*raio*Math.PI);
+    public void area(Graphics g) {//calcula a área 
+        double area = Math.sqrt(Math.pow(raio, 2)*Math.PI);
         g.drawString(""+Math.round(area)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
     }
 
     @Override
-    public void perimetro(Graphics g) {
+    public void perimetro(Graphics g) {//calcula o perimetro
         double perimetro = 2*Math.PI*raio;
         g.drawString(""+Math.round(perimetro)+"px", (super.getX()+super.getX1())/2,super.getY());
     }

@@ -37,12 +37,12 @@ public class Retangulo extends D2{
     @Override
     public void area(Graphics g) {
         double area = base * largura;
-        g.drawString(""+Math.round(area), (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
+        g.drawString(""+Math.round(area)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
     }
 
     @Override
     public void perimetro(Graphics g) {
         double perimetro = 2*base + 2*largura;
-        g.drawString(""+Math.round(perimetro), (super.getX()+super.getX1())/2,super.getY());
+        g.drawString(""+Math.round(perimetro)+"px", (super.getX()+super.getX1())/2,super.getY());
     }
 }

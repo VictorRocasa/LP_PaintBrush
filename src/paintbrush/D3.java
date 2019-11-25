@@ -6,6 +6,7 @@
 package paintbrush;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
@@ -16,7 +17,8 @@ public abstract class D3 extends D2{
 
     public D3(int x, int y, int x1, int y1, Color corExterna, Color corInterna) {
         super(x, y, x1, y1, corExterna, corInterna);
+        this.altura = (y1-y);
     }
 
-    public abstract void volume();
+    public abstract void volume(Graphics g);
 }

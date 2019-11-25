@@ -6,27 +6,29 @@
 package paintbrush;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
- * @author 09795410695
+ * @author victorPC
  */
-public class Circulo{ //extends D2{
-//
-//    private int raio;
-//
-//    public Circulo(int x, int y, Color cor) {
-//        super(x, y, cor);
-//    }
-//    
-//    @Override
-//    public void area() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void perimetro() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//    
+public class Circulo extends Elipse{
+    int raio;
+
+    public Circulo(int x, int y, int x1, int y1, Color corInterna, Color corExterna) {
+        super(x, y, x1, y1, corInterna, corExterna);
+        this.raio = (x1-x)/2;
+    }
+
+    @Override
+    public void area(Graphics g) {
+        double area = Math.sqrt(raio*raio*Math.PI);
+        g.drawString(""+Math.round(area)+"px", (super.getX()+super.getX1())/2,(super.getY()+super.getY1())/2);
+    }
+
+    @Override
+    public void perimetro(Graphics g) {
+        double perimetro = 2*Math.PI*raio;
+        g.drawString(""+Math.round(perimetro)+"px", (super.getX()+super.getX1())/2,super.getY());
+    }
 }
